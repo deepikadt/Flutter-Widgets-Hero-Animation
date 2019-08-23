@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 const int FROM = 0;
 const int TO = 1;
 const String orderAZ = 'A to Z';
-const String orderZA = 'Z to A';
+ const String orderZA = 'Z to A';
 
 const String JAN01 = '01';
 const String FEB02 = '02';

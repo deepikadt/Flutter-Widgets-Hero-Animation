@@ -1,10 +1,9 @@
 import 'dart:ui' as prefix0;
 
-import 'package:educational_app/history.dart';
 import 'package:flutter/material.dart';
 
 class CategoryDetail extends StatelessWidget {
-  int index;
+  final int index;
 
   CategoryDetail(this.index);
 
@@ -27,26 +26,9 @@ class CategoryDetail extends StatelessWidget {
 Widget _descriptionHeader(BuildContext context, int index) {
   return SliverAppBar(
     backgroundColor: Colors.purple,
-    expandedHeight: 250,  
+    expandedHeight: 250,
     elevation: 0,
     leading: Container(),
-    // leading: GestureDetector(
-    //   child: Padding(
-    //     child: Container(
-    //       margin: const EdgeInsets.all(10),
-    //       decoration: BoxDecoration(
-    //           color: Colors.white,
-    //           shape: BoxShape.rectangle,
-    //           borderRadius: BorderRadius.all(Radius.circular(10))),
-    //       alignment: Alignment.center,
-    //       child: Icon(Icons.navigate_before, color: Colors.black, size: 20),
-    //     ),
-    //     padding: const EdgeInsets.all(5),
-    //   ),
-    //   onTap: () {
-    //     Navigator.maybePop(context);
-    //   },
-    // ),
     flexibleSpace: FlexibleSpaceBar(
       titlePadding: const EdgeInsets.symmetric(horizontal: 20),
       title: Container(
@@ -59,7 +41,6 @@ Widget _descriptionHeader(BuildContext context, int index) {
               color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
         ),
         width: 230,
-       
       ),
       background: _backgroundDescriptionHeader(index),
     ),
@@ -71,15 +52,14 @@ Widget _backgroundDescriptionHeader(int index) {
     color: Colors.purple,
     child: Stack(
       children: <Widget>[
+        //Hero animation
         Hero(
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/illustration_pro_02.png'),
-                  fit: BoxFit.cover),
+                  image: AssetImage('assets/imgr.jpg'), fit: BoxFit.cover),
             ),
             height: 267,
-            width: 400,
           ),
           tag: 'categoryItem_' '${index.toString()}',
           transitionOnUserGestures: true,
@@ -88,7 +68,6 @@ Widget _backgroundDescriptionHeader(int index) {
           alignment: Alignment.bottomCenter,
           child: ClipRect(
             child: SizedBox(
-              width: 400,
               height: 65,
               child: BackdropFilter(
                 filter: prefix0.ImageFilter.blur(sigmaX: 5, sigmaY: 5),
@@ -248,8 +227,10 @@ Widget _description(BuildContext context) {
                   ),
                 ),
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => History()));
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => History()));
+
+                  //add any functionality on tap of this button .
                 },
               ),
             ),

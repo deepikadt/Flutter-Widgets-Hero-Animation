@@ -152,7 +152,7 @@ class _MyHomePage extends State<MyHomePage> {
         leading: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/illustration_pro_02.png'),
+                image: AssetImage('assets/imgr.jpg'),
                 fit: BoxFit.cover),
           ),
           width: 70,
@@ -296,11 +296,12 @@ class _MyHomePage extends State<MyHomePage> {
           width: 110,
           child: Column(
             children: <Widget>[
+              //Hero animation
               Hero(
                 child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('assets/illustration_pro_02.png'),
+                        image: AssetImage('assets/imgr.jpg'),
                         fit: BoxFit.cover),
                   ),
                   height: 105,

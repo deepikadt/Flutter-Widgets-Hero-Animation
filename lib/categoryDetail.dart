@@ -27,28 +27,26 @@ class CategoryDetail extends StatelessWidget {
 Widget _descriptionHeader(BuildContext context, int index) {
   return SliverAppBar(
     backgroundColor: Colors.purple,
-    expandedHeight: 250,
-    floating: false,
-    pinned: true,
-    primary: true,
+    expandedHeight: 250,  
     elevation: 0,
-    leading: GestureDetector(
-      child: Padding(
-        child: Container(
-          margin: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.all(Radius.circular(10))),
-          alignment: Alignment.center,
-          child: Icon(Icons.navigate_before, color: Colors.black, size: 20),
-        ),
-        padding: const EdgeInsets.all(5),
-      ),
-      onTap: () {
-        Navigator.maybePop(context);
-      },
-    ),
+    leading: Container(),
+    // leading: GestureDetector(
+    //   child: Padding(
+    //     child: Container(
+    //       margin: const EdgeInsets.all(10),
+    //       decoration: BoxDecoration(
+    //           color: Colors.white,
+    //           shape: BoxShape.rectangle,
+    //           borderRadius: BorderRadius.all(Radius.circular(10))),
+    //       alignment: Alignment.center,
+    //       child: Icon(Icons.navigate_before, color: Colors.black, size: 20),
+    //     ),
+    //     padding: const EdgeInsets.all(5),
+    //   ),
+    //   onTap: () {
+    //     Navigator.maybePop(context);
+    //   },
+    // ),
     flexibleSpace: FlexibleSpaceBar(
       titlePadding: const EdgeInsets.symmetric(horizontal: 20),
       title: Container(
@@ -61,6 +59,7 @@ Widget _descriptionHeader(BuildContext context, int index) {
               color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
         ),
         width: 230,
+       
       ),
       background: _backgroundDescriptionHeader(index),
     ),
@@ -90,7 +89,7 @@ Widget _backgroundDescriptionHeader(int index) {
           child: ClipRect(
             child: SizedBox(
               width: 400,
-              height: 60,
+              height: 65,
               child: BackdropFilter(
                 filter: prefix0.ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                 child: Container(
@@ -248,8 +247,9 @@ Widget _description(BuildContext context) {
                     ],
                   ),
                 ),
-                onTap: (){
-                  Navigator.push(context,MaterialPageRoute(builder: (context)=>History()));
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => History()));
                 },
               ),
             ),

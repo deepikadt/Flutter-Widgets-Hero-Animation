@@ -2,6 +2,7 @@ import 'package:educational_app/categoryDetail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 
 void main() => runApp(MyApp());
 
@@ -237,21 +238,36 @@ class _MyHomePage extends State<MyHomePage> {
   }
 
   Widget _allCategoryList() {
+    List<String> categoryList = <String>[
+      'Graphic Design',
+      'Programming',
+      'E commerce',
+      'Marketing',
+      'Marketing'
+    ];
+
     return Container(
       height: 50,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: 5,
-          itemBuilder: (BuildContext buildContext, int index) {
-            return CustomWidget(
-                index: index,
-                isSelected: currentItemIndex == index,
-                onSelect: () {
-                  setState(() {
-                    currentItemIndex = index;
-                  });
-                });
-          }),
+      child: ListView.separated(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        scrollDirection: Axis.horizontal,
+        itemCount: categoryList.length,
+        itemBuilder: (BuildContext buildContext, int index) {
+          return CustomWidget(
+            index: index,
+            isSelected: currentItemIndex == index,
+            onSelect: () {
+              setState(() {
+                currentItemIndex = index;
+              });
+            },
+            item: categoryList[index],
+          );
+        },
+        separatorBuilder: (BuildContext context, int index) => const Padding(
+          padding: const EdgeInsets.only(left: 15),
+        ),
+      ),
     );
   }
 
@@ -259,6 +275,7 @@ class _MyHomePage extends State<MyHomePage> {
     return Container(
       height: 150,
       child: ListView.builder(
+          padding: const EdgeInsets.only(left: 20),
           scrollDirection: Axis.horizontal,
           itemCount: 10,
           itemBuilder: (BuildContext buildContext, int index) {
@@ -273,88 +290,89 @@ class _MyHomePage extends State<MyHomePage> {
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => CategoryDetail(index)));
       },
-      child: Container(
-        color: Colors.purpleAccent,
-        margin: const EdgeInsets.only(left: 20),
-        width: 110,
-        child: Column(
-          children: <Widget>[
-            Hero(
+      child: Padding(padding: const EdgeInsets.only(right: 20),
               child: Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/illustration_pro_02.png'),
-                      fit: BoxFit.cover),
+          color: Colors.purpleAccent,
+          width: 110,
+          child: Column(
+            children: <Widget>[
+              Hero(
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/illustration_pro_02.png'),
+                        fit: BoxFit.cover),
+                  ),
+                  height: 105,
                 ),
-                height: 105,
+                tag: 'categoryItem_' '${index.toString()}',
               ),
-              tag: 'categoryItem_' '${index.toString()}',
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 5),
-              child: Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 4),
-                    child: Text(
-                      'Painting',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
+              Padding(
+                padding: const EdgeInsets.only(top: 5),
+                child: Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 4),
+                      child: Text(
+                        'Painting',
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 40),
+                      child: Icon(
+                        Icons.more_vert,
+                        color: Colors.white,
+                        size: 10,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5),
+                child: Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 2),
+                      child: Icon(
+                        Icons.star,
+                        color: Colors.white70,
+                        size: 13,
+                      ),
+                    ),
+                    Text(
+                      '26',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 13,
                           fontWeight: FontWeight.bold),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 40),
-                    child: Icon(
-                      Icons.more_vert,
-                      color: Colors.white,
-                      size: 10,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 7),
+                      child: Icon(
+                        Icons.star,
+                        color: Colors.white70,
+                        size: 13,
+                      ),
                     ),
-                  ),
-                ],
+                    Text(
+                      '2hr',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 5),
-              child: Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 2),
-                    child: Icon(
-                      Icons.star,
-                      color: Colors.white70,
-                      size: 13,
-                    ),
-                  ),
-                  Text(
-                    '26',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 7),
-                    child: Icon(
-                      Icons.star,
-                      color: Colors.white70,
-                      size: 13,
-                    ),
-                  ),
-                  Text(
-                    '2hr',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -366,66 +384,59 @@ class CustomWidget extends StatefulWidget {
   final int index;
   final bool isSelected;
   final VoidCallback onSelect;
+  final String item;
 
   const CustomWidget({
     Key key,
     @required this.index,
     @required this.isSelected,
     @required this.onSelect,
+    @required this.item,
   })  : assert(index != null),
         assert(isSelected != null),
         assert(onSelect != null),
+        assert(item != null),
         super(key: key);
 
   @override
-  _CustomWidget createState() => _CustomWidget(index);
+  _CustomWidget createState() => _CustomWidget(index, item);
 }
 
 class _CustomWidget extends State<CustomWidget> {
   int currentIndex = 0;
+  String item;
 
-  _CustomWidget(this.currentIndex);
-
-  List<String> categoryList = [
-    'Graphic Design',
-    'Programming',
-    'E commerce',
-    'Marketing',
-    'Marketing'
-  ];
+  _CustomWidget(this.currentIndex, this.item);
 
   @override
   Widget build(BuildContext context) {
     // Manage clicks for category items
     return GestureDetector(
       onTap: widget.onSelect,
-      child: Padding(
-        child: Column(
-          children: <Widget>[
-            Text(
-              categoryList[currentIndex],
-              style: widget.isSelected
-                  ? TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold)
-                  : TextStyle(
-                      color: Colors.white60,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: widget.isSelected
-                  ? Icon(
-                      Icons.linear_scale,
-                      color: Colors.white,
-                    )
-                  : null,
-            ),
-          ],
-        ),
-        padding: const EdgeInsets.only(left: 20),
+      child: Column(
+        children: <Widget>[
+          Text(
+            item,
+            style: widget.isSelected
+                ? TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold)
+                : TextStyle(
+                    color: Colors.white60,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: widget.isSelected
+                ? Icon(
+                    Icons.linear_scale,
+                    color: Colors.white,
+                  )
+                : null,
+          ),
+        ],
       ),
     );
   }

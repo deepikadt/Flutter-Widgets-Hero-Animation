@@ -14,3 +14,4 @@ This projects demonstrates some of the basic widgets and the hero animation.
 
 ![image](https://user-images.githubusercontent.com/26101219/64109621-98e1b880-cd9d-11e9-8ff9-abf1807df830.png)
 
+![image2](https://user-images.githubusercontent.com/26101219/64109775-0261c700-cd9e-11e9-91a6-1df284498f68.png)

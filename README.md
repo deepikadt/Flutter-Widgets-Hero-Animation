@@ -11,3 +11,6 @@ This projects demonstrates some of the basic widgets and the hero animation.
 6. Creating a blur effect.
 7. Navigation in flutter.
 8. Decorating a container.
+
+![image](https://user-images.githubusercontent.com/26101219/64109621-98e1b880-cd9d-11e9-8ff9-abf1807df830.png)
+

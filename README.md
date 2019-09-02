@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # educational_app
 
 This projects demonstrates some of the basic widgets and the hero animation.
@@ -11,11 +11,3 @@ This projects demonstrates some of the basic widgets and the hero animation.
 6. Creating a blur effect.
 7. Navigation in flutter.
 8. Decorating a container.
-
-
-
-
-=======
-# Flutter-Widgets-Hero-Animation
-This projects demonstrates some of the basic widgets and the hero animation.
->>>>>>> dfc29badd01f19b6539d18e4bad706345363c9a6

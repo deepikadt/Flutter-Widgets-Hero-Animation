@@ -4,7 +4,7 @@
 This projects demonstrates some of the basic widgets and the hero animation.
 
 1. Use of list view aligned horizonatlly and vertically inside a single widget . Also ListView.separated and Listview.builder.
-2. Use of silver app bar.
+2. Use of sliver app bar.
 3. Use of hero animation on moving from one screen to other applied on each list view child.
 4. Use of rows and columns.
 5. Use of stack.
